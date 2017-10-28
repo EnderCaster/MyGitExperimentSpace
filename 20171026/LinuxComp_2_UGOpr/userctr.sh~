@@ -19,8 +19,8 @@ if [ $operationMode = "add" ] ; then
 #generate random password
 	randompassword=$(openssl rand -base64 8 | cksum | cut -c1-6)
 #add teacher
-	useradd -g sudo -s "/bin/zsh" $teacherName
-	echo $teacherName':'$randompassword | sudo chpasswd
+	adduser -s zsh $teacherName --stdin $randompassword
+	adduser $teacherName sudo
 	echo $teacherName':'$randompassword
 	counter=1
 	while [ $counter -le $studentCount ]
@@ -30,19 +30,19 @@ if [ $operationMode = "add" ] ; then
 			echo $studentNamePrefix$counter':******'
 		else
 			randompassword=$(openssl rand -base64 8 | cksum | cut -c1-6)
-			useradd -s "/bin/zsh" $studentNamePrefix$counter
-			echo $studentNamePrefix$counter':'$randompassword | sudo chpasswd
+			adduser -s zsh $studentNamePrefix$counter --stdin $randompassword
 			echo $studentNamePrefix$counter':'$randompassword
 		fi
 		counter=$(($counter + 1))
 	done
 #del
 elif [ $operationMode = "del" ] ; then
-	sudo deluser -q $teacherName
+	deluser -q $teacherName
 	counter=1
 	while [ $counter -le $studentCount ]
 	do
-		sudo deluser -q $studentNamePrefix$counter
+		deluser -q $studentNamePrefix$counter
+		echo $studentNamePrefix$counter 'deleted'
 		counter=$(($counter + 1))
 	done
 fi
