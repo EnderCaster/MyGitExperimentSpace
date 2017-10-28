@@ -3,6 +3,12 @@ operationMode=$1
 teacherName=$2
 studentNamePrefix=$3
 studentCount=$4
-parameterHasNullValue=($operationMode != "" || $teacherName != "" || $studentNamePrefix != "" || $studentCount != "")
-echo $parameterHasNullValue
-#parameterHasInvaluedInput=
+#del
+if [ $operationMode = "del" ] ; then
+	counter=1
+	while [ $counter -le $studentCount ]
+	do
+		echo $studentNamePrefix$counter 'deleted'
+		counter=$(($counter + 1))
+	done
+fi
