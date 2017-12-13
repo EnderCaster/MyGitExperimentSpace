@@ -75,6 +75,10 @@ LOCK TABLES `reader` WRITE;
 UNLOCK TABLES;
 
 --
+-- Dumping events for database 'library'
+--
+
+--
 -- Current Database: `mysql`
 --
 
@@ -187,6 +191,15 @@ CREATE TABLE `event` (
   PRIMARY KEY (`db`,`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Events';
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `event`
+--
+
+LOCK TABLES `event` WRITE;
+/*!40000 ALTER TABLE `event` DISABLE KEYS */;
+/*!40000 ALTER TABLE `event` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `func`
@@ -755,6 +768,10 @@ INSERT INTO `user` VALUES ('localhost','root','','Y','Y','Y','Y','Y','Y','Y','Y'
 UNLOCK TABLES;
 
 --
+-- Dumping events for database 'mysql'
+--
+
+--
 -- Table structure for table `general_log`
 --
 
@@ -840,6 +857,8 @@ CREATE TABLE `employee` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `phone` (`phone`),
   KEY `emp_fk` (`in_dpt`),
+  KEY `idx_id` (`id`),
+  KEY `idx_name` (`name`),
   CONSTRAINT `emp_fk` FOREIGN KEY (`in_dpt`) REFERENCES `department` (`dpt_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -850,7 +869,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (1,'Tom',26,2500,119119,'dpt4'),(2,'Jack',24,2500,120120,'dpt2'),(3,'Rose',22,2800,114114,'dpt3'),(4,'Jim',35,3000,100861,'dpt1'),(5,'Mary',21,3000,100101,'dpt2'),(6,'Alex',26,3000,123456,'dpt1'),(7,'Ken',27,3500,654321,'dpt1'),(8,'Rick',24,3500,987654,'dpt3'),(9,'Joe',31,3600,110129,'dpt2'),(10,'Mike',23,3400,110110,'dpt4'),(11,'Jobs',NULL,3600,19283,'dpt2'),(12,'Tony',NULL,3400,102938,'dpt3');
+INSERT INTO `employee` VALUES (1,'Tom',26,2500,119119,'dpt4'),(2,'Jack',24,2500,120120,'dpt2'),(3,'Jobs',NULL,3600,19283,'dpt2'),(4,'Tony',NULL,3400,102938,'dpt3'),(5,'Rose',22,2800,114114,'dpt3'),(6,'Alex',26,3000,123456,'dpt1'),(7,'Ken',27,3500,654321,'dpt1'),(8,'Rick',24,3500,987654,'dpt3'),(9,'Joe',31,3600,100129,'dpt2'),(10,'Mike',23,3400,110110,'dpt1'),(11,'Jim',35,3000,100861,'dpt4'),(12,'Mary',21,3000,100101,'dpt2');
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -880,6 +899,86 @@ LOCK TABLES `project` WRITE;
 INSERT INTO `project` VALUES (1,'proj_a','2015-01-15','2015-01-31','dpt2'),(2,'proj_b','2015-01-15','2015-02-15','dpt1'),(3,'proj_c','2015-02-01','2015-03-01','dpt4'),(4,'proj_d','2015-02-15','2015-04-01','dpt3'),(5,'proj_e','2015-02-25','2015-03-01','dpt4'),(6,'proj_f','2015-02-26','2015-03-01','dpt2');
 /*!40000 ALTER TABLE `project` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `table_1`
+--
+
+DROP TABLE IF EXISTS `table_1`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `table_1` (
+  `l_1` int(10) NOT NULL,
+  `l_2` int(10) DEFAULT NULL,
+  `l_3` int(10) DEFAULT NULL,
+  PRIMARY KEY (`l_1`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `table_1`
+--
+
+LOCK TABLES `table_1` WRITE;
+/*!40000 ALTER TABLE `table_1` DISABLE KEYS */;
+/*!40000 ALTER TABLE `table_1` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Temporary table structure for view `v_emp`
+--
+
+DROP TABLE IF EXISTS `v_emp`;
+/*!50001 DROP VIEW IF EXISTS `v_emp`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `v_emp` (
+  `v_name` tinyint NOT NULL,
+  `v_age` tinyint NOT NULL,
+  `v_phone` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping events for database 'mysql_shiyan'
+--
+
+--
+-- Current Database: `library`
+--
+
+USE `library`;
+
+--
+-- Current Database: `mysql`
+--
+
+USE `mysql`;
+
+--
+-- Current Database: `mysql_shiyan`
+--
+
+USE `mysql_shiyan`;
+
+--
+-- Final view structure for view `v_emp`
+--
+
+/*!50001 DROP TABLE IF EXISTS `v_emp`*/;
+/*!50001 DROP VIEW IF EXISTS `v_emp`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `v_emp` AS select `employee`.`name` AS `v_name`,`employee`.`age` AS `v_age`,`employee`.`phone` AS `v_phone` from `employee` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -890,4 +989,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-12 10:51:20
+-- Dump completed on 2017-12-13 22:19:50
