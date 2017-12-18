@@ -1,0 +1,5 @@
+1. Stop MySQL service
+2. Set my.cnf:bin-log as true
+3. Add crontab item:mysqldump -u root --all-databases > mysqlFullBackUp.sql
+4. Add crontab item:cp $(bin-log directory) $(backup directory)
+5. Start MySQL service
