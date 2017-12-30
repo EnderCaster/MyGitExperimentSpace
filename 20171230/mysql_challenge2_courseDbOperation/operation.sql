@@ -1,0 +1,2 @@
+SELECT student.sid,student.sname,student.gender INTO OUTFILE '/tmp/physics.txt' FROM student,mark,course WHERE mark.sid=student.sid AND mark.cid=course.cid AND mark.cid=(SELECT course.cid FROM course WHERE course.cname='physics') AND mark.score=(SELECT max(score) FROM mark WHERE cid=(SELECT cid FROM course WHERE cname='physics'));
+UPDATE mark SET score=score+3 WHERE sid=(SELECT sid FROM student WHERE sname = 'Tom') AND cid=(SELECT cid FROM course WHERE cname='chemistry');
