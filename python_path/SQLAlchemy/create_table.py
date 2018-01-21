@@ -26,6 +26,7 @@ class User(Base):
 	and use _ to connect in keyword
 	the variable name equals to Column name. """
 	id = Column(Integer, primary_key=True)
+	username = Column(String(64),nullable=False, index=True)
 	password = Column(String(64), nullable=False)
 	email = Column(String(64),nullable=False, index=True)
 	# one to many
