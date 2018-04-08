@@ -1,0 +1,6 @@
+---
+- hosts: test
+  tasks:
+    - name: test callback plugin
+      shell: echo $PATH
+...
