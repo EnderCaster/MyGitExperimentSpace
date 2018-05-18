@@ -10,11 +10,11 @@ class Solution:
 		result=[]
 		for string in array:
 			if"".join(sorted(string)) not in strDict.keys():
-				strDict["".join(sorted(sring))] = 1
+				strDict["".join(sorted(string))] = 1
 			else:
-				strDict["".join(sorted(sring))] += 1
+				strDict["".join(sorted(string))] += 1
 		for string in array:
-			if strDict["".join(sorted(sring))] > 1:
+			if strDict["".join(sorted(string))] > 1:
 				result.append(string)
 		return result
 
