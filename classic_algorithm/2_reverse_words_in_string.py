@@ -1,5 +1,9 @@
 class Solution:
     def reverse_words_in_string(self, origin):
+        """this function aims to trim string and reverse it by word
+        exp: Hello world -> world Hello
+        (not finished)
+        """
         if len(origin)<=0:
             return origin
 
