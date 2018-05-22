@@ -1,5 +1,8 @@
 class Solution:
     def reverse_words_in_string(self, origin):
+        return self.my_solution(origin)
+
+    def reverse_words_in_string_1(self, origin):
         """this function aims to trim string and reverse it by word
         exp: Hello world -> world Hello
         (not finished)
@@ -27,7 +30,30 @@ class Solution:
             
 
         return s_ret
+    def my_solution(self, origin):
+        """time O(n),space O(n+2)
+        """
+        # don't think better just do it
+        # we have anther string and two pointers
+        index,index_t=len(origin)-1,len(origin)
+        another_string=list()
+        for i in range(len(origin)):
+            # origin[index:index_t] 
+            if origin[index:index_t]==" ":
+                index_t=index
+                index-=1
+                continue
+
+            if origin[index-1:index]==" " or index==0:
+                another_string.append(origin[index:index_t])
+                index_t=index
+            print("index",index_t,":",origin[index:index_t])
+            index-=1
+        
+        return " ".join(another_string)
+            
+
 
 test_class=Solution()
-result=test_class.reverse_words_in_string("hello world")
+result=test_class.reverse_words_in_string("hello world this is a test")
 print(result)
