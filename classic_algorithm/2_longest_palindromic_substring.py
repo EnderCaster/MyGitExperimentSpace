@@ -41,3 +41,27 @@ class Solution:
                 return False
 
         return True
+    # O(n^2)
+    def palindrome(self,origin,left,right):
+        """the max length palindrome if when left and right is the center
+
+        :return: 
+        """
+        while left>=0 and right<len(origin) and origin[left]==origin[right]:
+            left-=1
+            right+=1
+
+        return origin[left+1:right-1]
+
+    def longestPalindrome2(self,origin):
+        if len(origin)==0:
+            return origin
+        res=""
+        for i in range(len(origin)):
+            target=self.palindrome(origin,i,i)
+            if len(target)>len(res):
+                res=target
+            target=self.palindrome(origin,i,i+1)
+            if len(target)>len(res):
+                res=target
+        return res
