@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- utf-8 -*-
 class Solution:
     def reverse_words_in_string(self, origin):
         return self.my_solution(origin)

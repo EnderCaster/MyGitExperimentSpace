@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# -*- coding=utf-8 -*-
+# -*- utf-8 -*-
 import string
 class Solution:
 	def rotate_string(self, string, length):
