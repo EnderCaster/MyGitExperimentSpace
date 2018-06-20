@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: factorial
+Version: 0.1
+Summary: Factorial module.
+Home-page: http://wordpress.endercaster.com
+Author: EnderCaster
+Author-email: mstext0@hotmail.com
+License: MIT
+Description: A test module for shiyanlou course
+Platform: Linux
