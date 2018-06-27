@@ -8,7 +8,7 @@ def login():
     err = None
     if request.method == 'POST':
         if valid_login(request.form['username'], request.form['password']):
-            return login_user(requert.form['username'])
+            return login_user(request.form['username'])
         else:
             error = 'Invalid user/password'
         # the code under the line is a practice of cookie
@@ -36,4 +36,8 @@ def is_login(cookie):
 
 
 def login_user(username=''):
+    pass
+
+
+def valid_login(username='', password=''):
     pass
