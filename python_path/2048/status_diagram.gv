@@ -1,0 +1,12 @@
+digraph {
+    node[shape="record"]
+    Init->Game[label="init()"]
+    Game->Init[label="restart()"]
+    Game->Win[label="Win"]
+    Game->Exit[label="exit()"]
+    Game->GameOver[label="Lose"]
+    Win->Init[label="restart()"]
+    Win->Exit[label="exit()"]
+    GameOver->Exit[label="exit()"]
+    GameOver->Init[label="restart()"]
+}
