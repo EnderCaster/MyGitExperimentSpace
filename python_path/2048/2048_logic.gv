@@ -1,0 +1,27 @@
+digraph{
+    graph[shape="record"]
+    label="comment|imput|return"
+    get_user_action[label=""]
+    subgraph cluster_matrix{
+        label="matrix"
+        transpose[label="Transopse the matrix(game field|array:field|array:T(field)"];
+        invert[label="Flip the matrix|array:field|array:dleif(no"];
+    }
+    subgraph cluster_main{
+        label="Main function, implements the main logic of game|stdscr/keyboard|void"];
+        reset[label="Game field reset|void|void"];
+        subgraph cluster_move{
+            label="Use move left and matrix operation to move every direction|string:direction|";
+        }
+    }
+    subgraph cluster_gamefield{
+        label="Game Field Class"
+        init[label="Initialize game|void|int:status"];
+        game[label="Function for gaming|void|int:status"];
+        end_game[label="Function for start and judge result|int:status|int:status"];
+        init->reset;
+        game->get_user_action;
+        game->is_win;
+        game->is_gameover;
+    }
+}
