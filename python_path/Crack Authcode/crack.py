@@ -67,7 +67,7 @@ def buildvector(im):
     dl = {}
     count = 0
     for i in im.getdata():
-        dl[count] = 1
+        dl[count] = i
         count += 1
     return dl
 
