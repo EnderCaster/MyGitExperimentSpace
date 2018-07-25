@@ -59,7 +59,7 @@ for letter in letters:
     # cut a rectangle from left top to right bottom
     im3 = im2.crop((letter[0], 0, letter[1], im2.size[1]))
     m.update("{}{}".format(time.time(), count).encode('utf8'))
-    im3.save("./{}.gif".format(m.hexdigest()))
+    # im3.save("./{}.gif".format(m.hexdigest()))
     count += 1
 
 

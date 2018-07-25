@@ -7,7 +7,7 @@ class VectorCompare:
         total=0
         for word,count in concordance.items():
             total+=count**2
-            return math.sqrt(total)
+        return math.sqrt(total)
 
     def relation(self,concordance_first,concordance_compare):
         relevance=0
