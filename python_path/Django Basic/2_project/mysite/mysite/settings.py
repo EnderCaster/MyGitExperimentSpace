@@ -27,10 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+TIME_ZONE='Asia/Shanghai'
+
 
 # Application definition
 
 INSTALLED_APPS = [
+    'lib.apps.LibConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
